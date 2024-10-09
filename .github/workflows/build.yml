@@ -29,3 +29,8 @@ jobs:
             file: src/PersonService/PersonService.Server/Dockerfile
             push: true
             tags: ${{secrets.DOCKER_USER}}/person_service:latest
+      - name: Deploy to Render
+        uses: gh-actions-workflows/deploy-docker-render@v1.1
+        with:
+          deploy-hook: ${{ secrets.RENDER_DEPLOY_HOOK }}
+          image-url: ${{secrets.DOCKER_USER}}/person_service:latest
