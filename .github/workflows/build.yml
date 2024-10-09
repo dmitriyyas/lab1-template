@@ -28,4 +28,4 @@ jobs:
             context: src/PersonService
             file: PersonService.Server/Dockerfile
             push: true
-            tags: ${{secrets.DOCKER_USER}}/personService:latest
+            tags: ${{secrets.DOCKER_USER}}/person_service:latest
