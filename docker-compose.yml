@@ -12,7 +12,18 @@ services:
       - db-data:/var/lib/postgresql/data
       - ./postgres/:/docker-entrypoint-initdb.d/
     ports:
-      - "5432:5432"
+      - "5434:5432"
+  
+  person_service:
+    container_name: person_service
+    build:
+      context: src/PersonService
+      dockerfile: PersonService.Server/Dockerfile
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    
 
 volumes:
   db-data:
