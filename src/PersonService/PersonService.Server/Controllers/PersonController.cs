@@ -57,7 +57,7 @@ public class PersonController(IPersonsService personService) : ControllerBase
             var personCreate = PersonDtoConverter.ConvertToCreateModel(request);
             var person = await _personService.CreatePerson(personCreate);
 
-            return Created($"/api/v1/persons/{person.Id}", person);
+            return Created($"/api/v1/persons/{person.Id}", null);
         }
         catch (Exception ex)
         {
